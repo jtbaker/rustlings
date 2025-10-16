@@ -1,0 +1,65 @@
+fn animal_habitat(animal: &str) -> &str {
+    // TODO: Fix the compiler error in the statement below.
+    let identifier = if animal == "crab" {
+        1
+    } else if animal == "gopher" {
+        2
+    } else if animal == "snake" {
+        3
+    } else {
+        0
+    };
+
+    // Don't change the expression below!
+    if identifier == 1 {
+        "Beach"
+    } else if identifier == 2 {
+        "Burrow"
+    } else if identifier == 3 {
+        "Desert"
+    } else {
+        "Unknown"
+    }
+}
+macro_rules! my_macro {
+    ($x:expr) => {
+        println!("The value is: {}", $x);
+    };
+    ($x:expr, $y:expr) => {
+        println!("Values are: {} and {}", $x, $y);
+    };
+}
+
+// Use the macro
+
+fn main() {
+    my_macro!(5);                    // Prints "The value is: 5"
+    my_macro!(5, 10);               // Prints "Values are: 5 and 10"
+    // You can optionally experiment here.
+}
+
+// Don't change the tests!
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn gopher_lives_in_burrow() {
+        assert_eq!(animal_habitat("gopher"), "Burrow")
+    }
+
+    #[test]
+    fn snake_lives_in_desert() {
+        assert_eq!(animal_habitat("snake"), "Desert")
+    }
+
+    #[test]
+    fn crab_lives_on_beach() {
+        assert_eq!(animal_habitat("crab"), "Beach")
+    }
+
+    #[test]
+    fn unknown_animal() {
+        assert_eq!(animal_habitat("dinosaur"), "Unknown")
+    }
+}
