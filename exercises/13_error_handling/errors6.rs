@@ -47,7 +47,7 @@ impl PositiveNonzeroInteger {
             .map_err(ParsePosNonzeroError::from_parse_int)
             .and_then(|n| Self::new(n).map_err(ParsePosNonzeroError::from_creation));
 
-        return x;
+        x
     }
 }
 
