@@ -1,4 +1,13 @@
 fn factorial(num: u64) -> u64 {
+    let mut n: u64 = 1;
+    // let mut v: Vec<u64> = vec![];
+    (1..num).for_each(|f| {
+        if f == 1 {
+            n = 1;
+        }
+        n *= f + 1;
+    });
+    n
     // TODO: Complete this function to return the factorial of `num` which is
     // defined as `1 * 2 * 3 * … * num`.
     // https://en.wikipedia.org/wiki/Factorial
@@ -13,6 +22,7 @@ fn factorial(num: u64) -> u64 {
 }
 
 fn main() {
+    println!("{}", factorial(2))
     // You can optionally experiment here.
 }
 
